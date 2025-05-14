@@ -1,6 +1,5 @@
 import { Text, View, StyleSheet, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
-import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { Picker } from '@react-native-picker/picker';
 

@@ -21,37 +21,37 @@ export default function Lista() {
                     text: 'Eliminar',
                     style: 'destructive',
                     onPress: () => {
-                        const nuevaLista = [ ...clientes];
-                        nuevaLista.splice(index,1);
+                        const nuevaLista = [...clientes];
+                        nuevaLista.splice(index, 1);
                         setClientes(nuevaLista);
                     }
                 },
             ],
-            { cancelable: true}
+            { cancelable: true }
         );
     }
 
-    const guardarNuevo = (nuevo) =>{
+    const guardarNuevo = (nuevo) => {
         setClientes([nuevo, ...clientes])
     }
-    
+
     const [clientes, setClientes] = useState([
 
 
         {
-            Ncedula: '1111',
-            Nnombres: 'jjj',
-            Napellidos: 'nnn',
-            Nfechanac: '1111',
+            Ncedula: '121-060104-1001Q',
+            Nnombres: 'Gabriel Manuel',
+            Napellidos: 'Rivas Castilla',
+            Nfechanac: '19900101',
             Nsexo: 'Masculino'
 
         },
 
-           {
-            Ncedula: '1111',
-            Nnombres: 'jjj',
-            Napellidos: 'nnn',
-            Nfechanac: '1111',
+        {
+            Ncedula: '121-060104-1001Q',
+            Nnombres: ' Manuel',
+            Napellidos: 'Rivas Castilla',
+            Nfechanac: '19900101',
             Nsexo: 'Masculino'
 
         }
@@ -64,7 +64,7 @@ export default function Lista() {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('Formulario', {guardarNuevo})} >
+            <TouchableOpacity style={styles.botonADD} onPress={() => navigation.navigate('Formulario', { guardarNuevo })} >
 
                 <FontAwesome5 name="user-plus" size={24} color="#4F8B2E" />
             </TouchableOpacity>
@@ -81,16 +81,13 @@ export default function Lista() {
 
                             <Text style={styles.label}> Cedula: <Text style={styles.valor}> {clientes.Ncedula} </Text> </Text>
 
-
-                                <TouchableOpacity style={styles.botone} onPress={eliminar} >
-
-                                    <FontAwesome5 name="trash" size={24} color="red" />
-                                </TouchableOpacity>
-
-
+                            <TouchableOpacity style={styles.botone}
+                                onPress={eliminar} >
+                                <FontAwesome5 name="trash" size={24} color="red" />
+                            </TouchableOpacity>
 
                             <Text style={styles.label}> Nombre: <Text style={styles.valor}> {clientes.Nnombres} </Text> </Text>
-                            <Text style={styles.label}> Apeliidos: <Text style={styles.valor}> {clientes.Napellidos} </Text> </Text>
+                            <Text style={styles.label}> Apellidos: <Text style={styles.valor}> {clientes.Napellidos} </Text> </Text>
                             <Text style={styles.label}> Fecha de nacimiento: <Text style={styles.valor}> {clientes.Nfechanac} </Text> </Text>
                             <Text style={styles.label}> Sexo: <Text style={styles.valor}> {clientes.Nsexo} </Text> </Text>
                         </View>
@@ -109,7 +106,7 @@ export default function Lista() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#E6F7E6',
     },
@@ -118,7 +115,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         fontWeight: 'bold',
         color: '#4F8B2E',
-        paddingTop: 20
+        paddingTop: 20,
     },
     card: {
         height: 130,
@@ -140,7 +137,9 @@ const styles = StyleSheet.create({
         color: '#358B47'
 
     },
-    boton: {
+    botonADD: {
+        position: 'absolute',
+        top: 5,
         height: 50,
         backgroundColor: '#E6F7E6',
         width: 50,
