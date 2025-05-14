@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 export default function Lista() {
 
     const navigation = useNavigation();
-
     const eliminar = (index) => {
         Alert.alert(
             'Confirmar aliminacion',
@@ -30,6 +29,10 @@ export default function Lista() {
             ],
             { cancelable: true}
         );
+    }
+
+    const guardarNuevo = (nuevo) =>{
+        setClientes([nuevo, ...clientes])
     }
     
     const [clientes, setClientes] = useState([
@@ -56,14 +59,12 @@ export default function Lista() {
 
     ]);
 
-  const guardaNuevo = (nuevo) => {
-    setClientes([nuevo, ...clientes])
-  }
+
 
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('Formulario', {guardaNuevo})} >
+            <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('Formulario', {guardarNuevo})} >
 
                 <FontAwesome5 name="user-plus" size={24} color="#4F8B2E" />
             </TouchableOpacity>
@@ -81,7 +82,7 @@ export default function Lista() {
                             <Text style={styles.label}> Cedula: <Text style={styles.valor}> {clientes.Ncedula} </Text> </Text>
 
 
-                                <TouchableOpacity style={styles.botone} onPress={(eliminar)} >
+                                <TouchableOpacity style={styles.botone} onPress={eliminar} >
 
                                     <FontAwesome5 name="trash" size={24} color="red" />
                                 </TouchableOpacity>

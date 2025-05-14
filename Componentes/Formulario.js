@@ -6,11 +6,8 @@ import { Picker } from '@react-native-picker/picker';
 
 
 
-function Formulario({route}) {
-  
-  const navigation = useNavigation();
-
-  const {guardarNuevo} = route.params;
+function Formulario({ route, navigation }) {
+  const { guardarNuevo } = route.params;
   const [cedula, setCedula] = useState('');
   const [nombres, setNombres] = useState('');
   const [apellidos, setApellidos] = useState('');
@@ -26,6 +23,7 @@ function Formulario({route}) {
       Nfechanac: fechaNacimiento,
       Nsexo: sexo,
     }
+
 
     guardarNuevo(nuevoCliente);
     Alert.alert('Datos almacenados', `
@@ -44,7 +42,7 @@ function Formulario({route}) {
     setSexo('');
     navigation.goBack();
 
-    
+
   }
 
 
@@ -98,12 +96,12 @@ function Formulario({route}) {
             <Picker.Item label="Femenino" value="Femenino" />
           </Picker>
         </View>
-        
+
       </View>
-      
+
       <View style={styles.botonGuardar}>
-        <TouchableOpacity style={styles.boton} 
-        onPress={guardar}>
+        <TouchableOpacity style={styles.boton}
+          onPress={guardar}>
           <Text style={styles.texto}  >Guardar</Text>
         </TouchableOpacity>
       </View>
