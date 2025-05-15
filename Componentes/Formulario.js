@@ -14,7 +14,7 @@ function Formulario({ route, navigation }) {
   const [sexo, setSexo] = useState('');
 
   const guardar = () => {
-    if (!cedula || !nombres) return null;
+    if (!cedula || !nombres || !apellidos || !fechaNacimiento || !sexo ) return null;
     const nuevoCliente = {
       Ncedula: cedula,
       Nnombres: nombres,
